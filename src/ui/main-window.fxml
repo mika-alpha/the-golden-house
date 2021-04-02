@@ -15,7 +15,7 @@
    <children>
       <VBox layoutY="7.0" prefHeight="768.0" prefWidth="1366.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <HBox prefHeight="758.0" prefWidth="1366.0">
+            <HBox prefHeight="770.0" prefWidth="1366.0">
                <children>
                   <VBox alignment="TOP_CENTER" prefHeight="743.0" prefWidth="149.0">
                      <children>
@@ -29,7 +29,7 @@
                               <Insets top="100.0" />
                            </VBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="170.0" text="Gestionar">
+                        <Button mnemonicParsing="false" onAction="#manageAction" prefHeight="35.0" prefWidth="170.0" text="Gestionar">
                            <VBox.margin>
                               <Insets top="60.0" />
                            </VBox.margin>
@@ -46,7 +46,7 @@
                         </Button>
                      </children>
                   </VBox>
-                  <VBox prefHeight="743.0" prefWidth="1203.0">
+                  <VBox prefHeight="768.0" prefWidth="1217.0">
                      <children>
                         <HBox alignment="CENTER" prefHeight="74.0" prefWidth="1201.0">
                            <children>
@@ -55,7 +55,7 @@
                                     <Insets right="20.0" />
                                  </HBox.margin>
                               </ImageView>
-                              <MenuButton mnemonicParsing="false" prefHeight="49.0" prefWidth="49.0">
+                              <MenuButton mnemonicParsing="false" prefHeight="43.0" prefWidth="39.0">
                                  <items>
                                     <MenuItem mnemonicParsing="false" text="Action 1" />
                                     <MenuItem mnemonicParsing="false" text="Action 2" />
@@ -66,7 +66,7 @@
                               </MenuButton>
                            </children>
                         </HBox>
-                        <Pane prefHeight="663.0" prefWidth="1201.0" />
+                        <Pane fx:id="pane" prefHeight="650.0" prefWidth="1217.0" />
                      </children>
                   </VBox>
                </children>

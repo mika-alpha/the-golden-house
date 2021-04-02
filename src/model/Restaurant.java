@@ -77,8 +77,22 @@ public class Restaurant {
         }
     }
 
-    public List<Ingredient> getIngredients() {
-        return ingredients;
+    public Customer searchCustomer(long id){
+        int pos = -1;
+        int s = 0;
+        int e = customers.size();
+        while (s < e && pos < 0){
+            int mp = (s + e) / 2;
+            if (customers.get(mp).getIdNumber() == id){
+                pos = mp;
+            } else if (customers.get(mp).getIdNumber() < id){
+                s = mp+1;
+            } else if (customers.get(mp).getIdNumber() > id){
+                e = mp-1;
+            }
+        }
+        return customers.get(pos);
     }
+
 
 }

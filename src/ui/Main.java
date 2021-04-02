@@ -5,13 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import model.Employee;
-import model.Ingredient;
 import model.Restaurant;
-import model.User;
-
 import java.io.*;
-import java.util.Arrays;
 
 
 public class Main extends Application {
@@ -19,16 +14,19 @@ public class Main extends Application {
     private Restaurant rt;
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+    private MainWindowController mwc;
 
     public Main() throws IllegalAccessException, IOException, ClassNotFoundException {
+        mwc = new MainWindowController();
         rt = new Restaurant();
     }
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("main-window.fxml"));
+        loader.setController(mwc);
         primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
+        primaryStage.setScene(new Scene(loader.load()));
         primaryStage.show();
     }
 
