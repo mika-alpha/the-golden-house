@@ -29,4 +29,43 @@ public class Order implements Serializable {
         createdBy = cb;
     }
 
+    public String getCode() {
+        return code;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public ArrayList<Product> getProducts() {
+        return products;
+    }
+
+    public ArrayList<Integer> getQuantities() {
+        return quantities;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public Employee getDeliveredBy() {
+        return deliveredBy;
+    }
+
+    public LocalDate getOrderDate() {
+        return orderDate;
+    }
+
+    public String getComments() {
+        return comments;
+    }
+
+    public User getCreatedBy() {
+        return createdBy;
+    }
+
+    public User getLastModifiedBy() {
+        return lastModifiedBy;
+    }
 }

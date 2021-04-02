@@ -25,4 +25,5 @@ public class Ingredient implements Serializable {
     public void setAvailable(boolean a){
         available = a;
     }
+
 }

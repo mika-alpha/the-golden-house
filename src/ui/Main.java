@@ -5,17 +5,23 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import model.Employee;
+import model.Ingredient;
 import model.Restaurant;
-import java.io.IOException;
+import model.User;
+
+import java.io.*;
+import java.util.Arrays;
 
 
 public class Main extends Application {
 
     private Restaurant rt;
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
     public Main() throws IllegalAccessException, IOException, ClassNotFoundException {
         rt = new Restaurant();
-        rt.loadData();
     }
 
     @Override

@@ -3,9 +3,7 @@ package model;
 import java.io.*;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 
 public class Restaurant {
 
@@ -50,7 +48,37 @@ public class Restaurant {
         }
     }
 
+    public void exportOrders(String fn, String sp) throws IOException { /////// unfinished
+        PrintWriter pw = new PrintWriter(new FileWriter(fn,true));
+        pw.write("Customer" + sp + "Address" + sp + "Phone" + sp + "Deliverer" + sp + "Status" + sp + "Date" + sp + "Code" + sp);
+        for (Order o : orders) {
+            return;
+        }
+        pw.close();
+    }
+
+
+    public void addCustomer(String n, String ln, long id, User cb, User lb, String ad, String pn, String cm){
+        Customer c = new Customer(n,ln,id,cb,lb,ad,pn,cm);
+        if (customers.isEmpty()){
+            customers.add(c);
+        } else {
+            int i = 0;
+            for (; i < customers.size(); i++){
+                if (c.getNames().compareTo(customers.get(i).getNames()) > 0){
+                    break;
+                } else if (c.getNames().compareTo(customers.get(i).getNames()) == 0){
+                    if (c.getLastNames().compareTo(customers.get(i).getLastNames()) > 0){
+                        break;
+                    }
+                }
+            }
+            customers.add(i, c);
+        }
+    }
+
     public List<Ingredient> getIngredients() {
         return ingredients;
     }
+
 }
