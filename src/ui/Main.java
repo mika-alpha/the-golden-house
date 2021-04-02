@@ -1,12 +1,22 @@
-package sample;
+package ui;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import model.Restaurant;
+import java.io.IOException;
+
 
 public class Main extends Application {
+
+    private Restaurant rt;
+
+    public Main() throws IllegalAccessException, IOException, ClassNotFoundException {
+        rt = new Restaurant();
+        rt.loadData();
+    }
 
     @Override
     public void start(Stage primaryStage) throws Exception{
