@@ -3,6 +3,7 @@ package model;
 import java.io.*;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class Restaurant {
@@ -65,11 +66,15 @@ public class Restaurant {
         } else {
             int i = 0;
             for (; i < customers.size(); i++){
-                if (c.getNames().compareTo(customers.get(i).getNames()) > 0){
+                if (c.compareTo(customers.get(i)) > 0){ //compareTo() compares by names.
                     break;
-                } else if (c.getNames().compareTo(customers.get(i).getNames()) == 0){
-                    if (c.getLastNames().compareTo(customers.get(i).getLastNames()) > 0){
+                } else if (c.compareTo(customers.get(i)) == 0){
+                    if (c.compare(c,customers.get(i)) > 0){ // compare() compares by lastNames.
                         break;
+                    } else if (c.compare(c,customers.get(i)) == 0){
+                        if(c.compare(c,customers.get(i+1)) > 0){
+                            break;
+                        }
                     }
                 }
             }
