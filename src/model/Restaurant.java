@@ -15,6 +15,7 @@ public class Restaurant {
     private List<User> users;
     private List<Order> orders;
     private List<ProductType> productTypes;
+    private User loggedUser;
     public final static String DATA_FILE_PATH = "data/";
 
     public Restaurant() {
@@ -25,6 +26,7 @@ public class Restaurant {
         users = new ArrayList<>();
         orders = new ArrayList<>();
         productTypes = new ArrayList<>();
+        loggedUser = null;
     }
 
     public void saveData(String data) throws IOException, NoSuchFieldException, IllegalAccessException {
@@ -99,5 +101,20 @@ public class Restaurant {
         return customers.get(pos);
     }
 
+    public void logIn(String us, String pass) throws InvalidLoginException {
+        for (User u : users){
+            if ((us.compareTo(u.username)==0) && (pass.compareTo(u.password)==0)){
+                loggedUser = u;
+                return;
+            }
+        } throw new InvalidLoginException("The username or password is incorrect");
+    }
 
+    public void logOut(){
+        loggedUser = null;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
 }

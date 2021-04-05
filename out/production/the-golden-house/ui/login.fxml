@@ -11,48 +11,48 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox alignment="TOP_CENTER" layoutX="150.0" layoutY="34.0" prefHeight="600.0" prefWidth="500.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox alignment="TOP_CENTER" layoutX="150.0" layoutY="34.0" prefHeight="580.0" prefWidth="450.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ImageView fitHeight="236.0" fitWidth="376.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="logInBanner" fitHeight="250.0" fitWidth="376.0" pickOnBounds="true" preserveRatio="true">
                <VBox.margin>
-                  <Insets bottom="20.0" />
+                  <Insets bottom="20.0" top="20.0" />
                </VBox.margin>
             </ImageView>
             <HBox alignment="CENTER" prefHeight="59.0" prefWidth="500.0">
                <children>
                   <Label prefHeight="20.0" prefWidth="50.0" text="Usuario:" />
-                  <TextField prefHeight="25.0" prefWidth="150.0">
+                  <TextField fx:id="username" onKeyPressed="#onEnter" prefHeight="25.0" prefWidth="150.0">
                      <HBox.margin>
-                        <Insets right="10.0" />
+                        <Insets right="20.0" />
                      </HBox.margin>
                   </TextField>
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="66.0" prefWidth="500.0">
+            <HBox alignment="CENTER" prefHeight="46.0" prefWidth="450.0">
                <children>
                   <Label prefHeight="20.0" prefWidth="70.0" text="Contraseña: " />
-                  <PasswordField prefHeight="25.0" prefWidth="150.0">
+                  <PasswordField fx:id="password" onKeyPressed="#onEnter" prefHeight="25.0" prefWidth="150.0">
                      <HBox.margin>
-                        <Insets right="30.0" />
+                        <Insets right="40.0" />
                      </HBox.margin>
                   </PasswordField>
                </children>
             </HBox>
-            <Button mnemonicParsing="false" text="Ingresar">
+            <Button fx:id="logInButton" mnemonicParsing="false" onAction="#logIn" onKeyPressed="#onEnter" text="Ingresar">
                <VBox.margin>
-                  <Insets bottom="40.0" top="20.0" />
+                  <Insets bottom="40.0" top="10.0" />
                </VBox.margin>
             </Button>
-            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="500.0">
+            <HBox alignment="CENTER" prefHeight="34.0" prefWidth="500.0">
                <children>
-                  <Hyperlink text="¿Primera vez? Click aquí" />
+                  <Hyperlink onAction="#registerFirstUser" text="¿Primera vez? Click aquí" />
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="53.0" prefWidth="500.0">
+            <HBox alignment="CENTER" prefHeight="36.0" prefWidth="500.0">
                <children>
-                  <Hyperlink text="¿Olvidó su contraseña?" />
+                  <Hyperlink onAction="#recoveryHelp" prefWidth="130.0" text="¿Olvidó su contraseña?" />
                </children>
             </HBox>
          </children>

@@ -19,7 +19,7 @@
                <children>
                   <VBox alignment="TOP_CENTER" prefHeight="743.0" prefWidth="149.0">
                      <children>
-                        <Label alignment="CENTER" text="time">
+                        <Label fx:id="timeLabel" alignment="CENTER" text="time">
                            <VBox.margin>
                               <Insets top="40.0" />
                            </VBox.margin>
@@ -45,12 +45,15 @@
                            </VBox.margin>
                         </Button>
                      </children>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
                   </VBox>
-                  <VBox prefHeight="768.0" prefWidth="1217.0">
+                  <VBox prefHeight="760.0" prefWidth="1200.0">
                      <children>
                         <HBox alignment="CENTER" prefHeight="74.0" prefWidth="1201.0">
                            <children>
-                              <ImageView fitHeight="104.0" fitWidth="1113.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="banner" fitHeight="104.0" fitWidth="1113.0" pickOnBounds="true" preserveRatio="true">
                                  <HBox.margin>
                                     <Insets right="20.0" />
                                  </HBox.margin>
@@ -66,8 +69,14 @@
                               </MenuButton>
                            </children>
                         </HBox>
-                        <Pane fx:id="pane" prefHeight="650.0" prefWidth="1217.0" />
+                        <Pane fx:id="pane" prefHeight="650.0" prefWidth="1200.0">
+                           <VBox.margin>
+                              <Insets bottom="5.0" right="10.0" top="10.0" />
+                           </VBox.margin></Pane>
                      </children>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
                   </VBox>
                </children>
             </HBox>
