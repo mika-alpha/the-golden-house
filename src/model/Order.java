@@ -39,7 +39,6 @@ public class Order implements Serializable {
         customer = c;
         deliveredBy = e;
         comments = com;
-        orderDate = LocalDate.now();
         createdBy = cb;
     }
 
@@ -95,8 +94,8 @@ public class Order implements Serializable {
         this.deliveredBy = deliveredBy;
     }
 
-    public void setOrderDate(LocalDate orderDate) {
-        this.orderDate = orderDate;
+    public void setOrderDate() {
+        orderDate = LocalDate.now();
     }
 
     public void setComments(String comments) {
@@ -111,8 +110,30 @@ public class Order implements Serializable {
         return selectedSp;
     }
 
-    public void setQuantities() {
-        System.out.println(quantities);
+    public void setCode(String code) {
+        this.code = code;
     }
+
+    public void generateCode(String code){
+        if (!code.equals("")) {
+            StringBuilder sb = new StringBuilder(code);
+            sb.trimToSize();
+            char alpha = sb.charAt(0);
+            String numeric = sb.substring(1, sb.length());
+            int num = Integer.parseInt(numeric);
+            if (num == 9999) {
+                alpha++;
+                numeric = String.format("%04d",0);
+            } else {
+                num++;
+                numeric = String.format("%04d", num);
+            }
+            setCode(alpha + numeric);
+        } else {
+            setCode("A0000");
+        }
+    }
+
+
 
 }

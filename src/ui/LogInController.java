@@ -34,11 +34,10 @@ public class LogInController {
     private Alert alert;
     private Restaurant rt;
 
-    public LogInController(Restaurant r){
+    public LogInController(Restaurant r) {
         rt = r;
         alert = new Alert(null);
     }
-
     public void initialize(){
         logInBanner.setImage(new Image("file:resources/front.png"));
         try {
@@ -107,6 +106,9 @@ public class LogInController {
     }
 
     public void showAlert(String title, Alert.AlertType type, String content){
+        if (alert.getOwner() == null){
+            alert.initOwner(logInBanner.getScene().getWindow());
+        }
         alert.setAlertType(type);
         alert.setTitle(title);
         alert.setHeaderText(null);

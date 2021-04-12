@@ -20,9 +20,10 @@
                   <TableView fx:id="selectedProductsTV" prefHeight="523.0" prefWidth="424.0">
                     <columns>
                       <TableColumn fx:id="deleteCol" prefWidth="40.0" />
-                      <TableColumn fx:id="selectedProductsCol" prefWidth="196.0" text="Producto" />
-                        <TableColumn fx:id="sizeCol" prefWidth="109.0" text="Tamaño" />
-                        <TableColumn fx:id="priceCol" prefWidth="121.0" text="Precio" />
+                      <TableColumn fx:id="selectedProductsCol" prefWidth="149.0" text="Producto" />
+                        <TableColumn fx:id="selectedQuantity" prefWidth="78.0" text="Cantidad" />
+                        <TableColumn fx:id="sizeCol" prefWidth="105.0" text="Tamaño" />
+                        <TableColumn fx:id="priceCol" prefWidth="94.0" text="Precio" />
                     </columns>
                   </TableView>
                </children>
@@ -34,9 +35,9 @@
                         <Insets right="10.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField fx:id="total" editable="false" prefHeight="25.0" prefWidth="114.0">
+                  <TextField fx:id="total" editable="false" prefHeight="25.0" prefWidth="95.0">
                      <HBox.margin>
-                        <Insets right="10.0" />
+                        <Insets right="5.0" />
                      </HBox.margin>
                      <opaqueInsets>
                         <Insets />

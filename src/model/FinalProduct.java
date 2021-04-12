@@ -2,14 +2,12 @@ package model;
 
 public class FinalProduct {
 
-    String productName;
     String size;
     Double price;
 
-    public FinalProduct(String s, Double p, String n){
+    public FinalProduct(String s, Double p){
         size = s;
         price = p;
-        productName = n;
     }
 
     public String getSize() {
@@ -26,13 +24,5 @@ public class FinalProduct {
 
     public Double getPrice(){
         return price;
-    }
-
-    public String getProductName() {
-        return productName;
-    }
-
-    public void setProductName(String productName) {
-        this.productName = productName;
     }
 }

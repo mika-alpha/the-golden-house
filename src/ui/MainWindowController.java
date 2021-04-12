@@ -35,8 +35,8 @@ public class MainWindowController {
     public void initialize(){
         rt.getProducts().add(new BaseProduct("arroz", new ProductType("principal"), null));
         rt.getProducts().add(new BaseProduct("arroz", new ProductType("principal"), null));
-        rt.getProducts().get(0).getVariations().add(new FinalProduct("personal",200.0,rt.getProducts().get(0).getName()));
-        rt.getProducts().get(0).getVariations().add(new FinalProduct("familiar",200.0, rt.getProducts().get(0).getName()));
+        rt.getProducts().get(0).getVariations().add(new FinalProduct("personal",200.0));
+        rt.getProducts().get(0).getVariations().add(new FinalProduct("familiar",200.0));
         clockThread();
         banner.setImage(new Image("file:resources/banner.png"));
     }

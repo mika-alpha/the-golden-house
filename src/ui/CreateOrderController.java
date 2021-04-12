@@ -14,20 +14,20 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import model.*;
-
 import java.io.IOException;
-import java.util.Arrays;
 
 public class CreateOrderController {
 
     @FXML
-    private TableView<FinalProduct> selectedProductsTV;
+    private TableColumn<OrderProduct, Integer> selectedQuantity;
+    @FXML
+    private TableView<OrderProduct> selectedProductsTV;
     @FXML
     private TableColumn<Button, Void> deleteCol;
     @FXML
-    private TableColumn<FinalProduct, String> selectedProductsCol;
+    private TableColumn<OrderProduct, String> selectedProductsCol;
     @FXML
-    private TableColumn<FinalProduct, Double> priceCol;
+    private TableColumn<OrderProduct, Double> priceCol;
     @FXML
     private TextField total;
     @FXML
@@ -105,6 +105,9 @@ public class CreateOrderController {
     }
 
     public void showAlert(String title, Alert.AlertType type, String content){
+        if (alert.getOwner() == null){
+            alert.initOwner(employeeLabel.getScene().getWindow());
+        }
         alert.setAlertType(type);
         alert.setTitle(title);
         alert.setHeaderText(null);
@@ -156,12 +159,16 @@ public class CreateOrderController {
     }
 
     public void setSelectedProductsTV(){
-        selectedProductsCol.setCellValueFactory(new PropertyValueFactory<>("productName"));
+        selectedProductsCol.setCellValueFactory(new PropertyValueFactory<>("name"));
         sizeCol.setCellValueFactory(new PropertyValueFactory<>("size"));
         priceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
-        ObservableList<FinalProduct> data = FXCollections.observableArrayList();
+        selectedQuantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+        ObservableList<OrderProduct> data = FXCollections.observableArrayList();
         for (int i = 0; i < tempOrder.getProducts().size(); i++){
-            data.add(tempOrder.getProducts().get(i).getVariations().get(tempOrder.getSelectedSp().get(i)));
+            OrderProduct op = new OrderProduct(tempOrder.getProducts().get(i).getName(),
+                    tempOrder.getProducts().get(i).getVariations().get(tempOrder.getSelectedSp().get(i)).getPrice(),
+                    tempOrder.getQuantities().get(i), tempOrder.getProducts().get(i).getVariations().get(tempOrder.getSelectedSp().get(i)).getSize());
+            data.add(op);
         }
         Callback<TableColumn<Button, Void>, TableCell<Button, Void>> cellFactory =
                 new Callback<TableColumn<Button, Void>, TableCell<Button, Void>>() {
@@ -182,6 +189,7 @@ public class CreateOrderController {
                                         int index = getIndex();
                                         tempOrder.getProducts().remove(index);
                                         tempOrder.getSelectedSp().remove(index);
+                                        tempOrder.getQuantities().remove(index);
                                         getTableView().getItems().remove(index);
                                         displayTotal();
                                     });
@@ -199,12 +207,24 @@ public class CreateOrderController {
 
     @FXML
     public void createOrder(ActionEvent event) {
-        rt.getOrders().add(null);
-        tempOrder.setComments(commentsTextArea.getText());
-        tempOrder.setQuantities();
-        System.out.println(tempOrder.getQuantities());
-        rt.getOrders().set(rt.getOrders().size()-1,tempOrder);
-        refreshScene();
+        String code;
+        try {
+            code = rt.getOrders().get(rt.getOrders().size() - 1).getCode();
+        } catch (IndexOutOfBoundsException iob){
+            code = "";
+        }
+        try {
+            validateOrder();
+            tempOrder.generateCode(code);
+            tempOrder.setOrderDate();
+            rt.getOrders().add(null);
+            tempOrder.setComments(commentsTextArea.getText());
+            rt.getOrders().set(rt.getOrders().size() - 1, tempOrder);
+            showAlert("Orden creada", Alert.AlertType.CONFIRMATION, "La nueva orden con código " + tempOrder.getCode() + " creada exitosamente");
+            refreshScene();
+        } catch (InvalidOrderException ioe){
+            showAlert("Orden inválida", Alert.AlertType.ERROR,"Por favor asegurese de elegir un empleado, cliente, y de añadir por lo menos un producto");
+        }
     }
 
     public void displayTotal(){
@@ -223,6 +243,12 @@ public class CreateOrderController {
         commentsTextArea.setText("");
         total.setText("");
         setSelectedProductsTV();
+    }
+
+    public void validateOrder() throws InvalidOrderException {
+        if (tempOrder.getCustomer() == null || tempOrder.getDeliveredBy() == null || tempOrder.getProducts().isEmpty()){
+            throw new InvalidOrderException("The customer, the employee or the products are null or empty");
+        }
     }
 
 }
