@@ -3,14 +3,27 @@ package model;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Iterator;
+
+enum Status{
+    REQUESTED("SOLICITADO"), IN_PROCESS("EN PROCESO"), SENT("ENVIADO"), DELIVERED("ENTREGADO"), CANCELED("CANCELADO");
+    String status;
+    Status(String s){
+        status = s;
+    }
+}
+
 
 public class Order implements Serializable {
 
     public final static long serialVersionUID = 1;
     String code;
-    String status;
-    ArrayList<Product> products;
+    Status status;
+    ArrayList<BaseProduct> baseProducts;
     ArrayList<Integer> quantities;
+    ArrayList<Integer> selectedSp;
     Customer customer;
     Employee deliveredBy;
     LocalDate orderDate;
@@ -18,10 +31,11 @@ public class Order implements Serializable {
     User createdBy;
     User lastModifiedBy;
 
-    public Order(String s, ArrayList<Product> p, ArrayList<Integer> q, Customer c, Employee e, String com, User cb){
-        status = s;
-        products = p;
-        quantities = q;
+    public Order(Customer c, Employee e, String com, User cb){
+        quantities = new ArrayList<>();
+        baseProducts = new ArrayList<>();
+        selectedSp = new ArrayList<>();
+        status = Status.REQUESTED;
         customer = c;
         deliveredBy = e;
         comments = com;
@@ -34,11 +48,11 @@ public class Order implements Serializable {
     }
 
     public String getStatus() {
-        return status;
+        return status.status;
     }
 
-    public ArrayList<Product> getProducts() {
-        return products;
+    public ArrayList<BaseProduct> getProducts() {
+        return baseProducts;
     }
 
     public ArrayList<Integer> getQuantities() {
@@ -68,4 +82,37 @@ public class Order implements Serializable {
     public User getLastModifiedBy() {
         return lastModifiedBy;
     }
+
+    public void setBaseProducts(ArrayList<BaseProduct> baseProducts) {
+        this.baseProducts = baseProducts;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public void setDeliveredBy(Employee deliveredBy) {
+        this.deliveredBy = deliveredBy;
+    }
+
+    public void setOrderDate(LocalDate orderDate) {
+        this.orderDate = orderDate;
+    }
+
+    public void setComments(String comments) {
+        this.comments = comments;
+    }
+
+    public void setCreatedBy(User createdBy) {
+        this.createdBy = createdBy;
+    }
+
+    public ArrayList<Integer> getSelectedSp(){
+        return selectedSp;
+    }
+
+    public void setQuantities() {
+        System.out.println(quantities);
+    }
+
 }

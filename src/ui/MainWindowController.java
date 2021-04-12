@@ -8,6 +8,9 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import model.FinalProduct;
+import model.BaseProduct;
+import model.ProductType;
 import model.Restaurant;
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -30,6 +33,10 @@ public class MainWindowController {
     }
 
     public void initialize(){
+        rt.getProducts().add(new BaseProduct("arroz", new ProductType("principal"), null));
+        rt.getProducts().add(new BaseProduct("arroz", new ProductType("principal"), null));
+        rt.getProducts().get(0).getVariations().add(new FinalProduct("personal",200.0,rt.getProducts().get(0).getName()));
+        rt.getProducts().get(0).getVariations().add(new FinalProduct("familiar",200.0, rt.getProducts().get(0).getName()));
         clockThread();
         banner.setImage(new Image("file:resources/banner.png"));
     }

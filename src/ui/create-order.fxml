@@ -13,16 +13,16 @@
 
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="645.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox prefHeight="768.0" prefWidth="424.0">
+      <VBox prefHeight="645.0" prefWidth="471.0">
          <children>
             <VBox prefWidth="462.0">
                <children>
-                  <TableView prefHeight="523.0" prefWidth="424.0">
+                  <TableView fx:id="selectedProductsTV" prefHeight="523.0" prefWidth="424.0">
                     <columns>
-                      <TableColumn prefWidth="33.0" />
-                      <TableColumn prefWidth="180.0" text="Producto" />
-                        <TableColumn minWidth="0.0" prefWidth="59.0" text="Cantidad" />
-                        <TableColumn prefWidth="101.0" text="Precio" />
+                      <TableColumn fx:id="deleteCol" prefWidth="40.0" />
+                      <TableColumn fx:id="selectedProductsCol" prefWidth="196.0" text="Producto" />
+                        <TableColumn fx:id="sizeCol" prefWidth="109.0" text="Tamaño" />
+                        <TableColumn fx:id="priceCol" prefWidth="121.0" text="Precio" />
                     </columns>
                   </TableView>
                </children>
@@ -34,7 +34,7 @@
                         <Insets right="10.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField editable="false" prefHeight="25.0" prefWidth="114.0">
+                  <TextField fx:id="total" editable="false" prefHeight="25.0" prefWidth="114.0">
                      <HBox.margin>
                         <Insets right="10.0" />
                      </HBox.margin>
@@ -48,24 +48,24 @@
             <TextArea fx:id="commentsTextArea" prefHeight="212.0" prefWidth="424.0" promptText="Comentarios" />
          </children>
       </VBox>
-      <VBox prefHeight="768.0" prefWidth="803.0">
+      <VBox prefHeight="645.0" prefWidth="656.0">
          <children>
             <HBox alignment="CENTER" prefHeight="113.0" prefWidth="835.0">
                <children>
                   <Label fx:id="customerLabel" prefHeight="20.0" prefWidth="300.0" text="Seleccione un cliente" />
                   <Separator orientation="VERTICAL" prefHeight="100.0" prefWidth="30.0" />
-                  <Button mnemonicParsing="false" onAction="#selectCustomer" prefHeight="45.0" prefWidth="110.0" text="Clientes">
+                  <Button mnemonicParsing="false" onAction="#selectCustomer" prefHeight="40.0" prefWidth="110.0" text="Clientes">
                      <HBox.margin>
                         <Insets left="50.0" />
                      </HBox.margin>
                   </Button>
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="652.0">
                <children>
                   <Label fx:id="employeeLabel" prefHeight="20.0" prefWidth="300.0" text="Seleccione un empleado" />
                   <Separator orientation="VERTICAL" prefHeight="100.0" prefWidth="30.0" />
-                  <Button mnemonicParsing="false" onAction="#selectEmployee" prefHeight="45.0" prefWidth="110.0" text="Empleados">
+                  <Button mnemonicParsing="false" onAction="#selectEmployee" prefHeight="40.0" prefWidth="110.0" text="Empleados">
                      <HBox.margin>
                         <Insets left="50.0" />
                      </HBox.margin>
@@ -73,26 +73,25 @@
                </children>
             </HBox>
             <Separator prefHeight="19.0" prefWidth="803.0" />
-            <HBox alignment="CENTER_LEFT" prefHeight="48.0" prefWidth="803.0">
+            <HBox alignment="CENTER_LEFT" prefHeight="97.0" prefWidth="652.0">
                <children>
                   <Label text="Filtrar">
                      <HBox.margin>
                         <Insets left="10.0" right="30.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField promptText="nombre - tipo" />
+                  <TextField fx:id="filter" prefHeight="25.0" prefWidth="183.0" promptText="por nombre o tipo" />
                </children>
             </HBox>
-            <TableView prefHeight="556.0" prefWidth="834.0">
+            <TableView fx:id="selectProductsTV" prefHeight="556.0" prefWidth="669.0">
               <columns>
-                <TableColumn minWidth="9.0" prefWidth="40.0" />
-                <TableColumn minWidth="0.0" prefWidth="528.0" text="Producto" />
-                  <TableColumn minWidth="0.0" prefWidth="178.0" text="Tipo" />
+                <TableColumn fx:id="productsCol" minWidth="0.0" prefWidth="437.0" text="Producto" />
+                  <TableColumn fx:id="typesCol" minWidth="0.0" prefWidth="220.0" text="Tipo" />
               </columns>
             </TableView>
          </children>
       </VBox>
-      <VBox alignment="CENTER" prefHeight="768.0" prefWidth="140.0">
+      <VBox alignment="CENTER" prefHeight="645.0" prefWidth="85.0">
          <children>
             <Button mnemonicParsing="false" onAction="#openMenu" prefHeight="50.0" prefWidth="70.0" text="Ver menú">
                <VBox.margin>

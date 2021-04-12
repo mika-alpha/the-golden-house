@@ -24,6 +24,7 @@ public class ConfirmBoxController {
     public ConfirmBoxController(){
     }
 
+
     @FXML
     public boolean display() {
         FXMLLoader confirmLoader = new FXMLLoader(getClass().getResource("confirm-box.fxml"));

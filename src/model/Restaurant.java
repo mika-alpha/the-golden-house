@@ -3,13 +3,12 @@ package model;
 import java.io.*;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 public class Restaurant {
 
     private List<Ingredient> ingredients;
-    private List<Product> products;
+    private List<BaseProduct> products;
     private List<Customer> customers;
     private List<Employee> employees;
     private List<User> users;
@@ -116,5 +115,25 @@ public class Restaurant {
 
     public List<User> getUsers() {
         return users;
+    }
+
+    public List<Customer> getCustomers() {
+        return customers;
+    }
+
+    public List<BaseProduct> getProducts() {
+        return products;
+    }
+
+    public List<Employee> getEmployees() {
+        return employees;
+    }
+
+    public User getLoggedUser() {
+        return loggedUser;
+    }
+
+    public List<Order> getOrders() {
+        return orders;
     }
 }

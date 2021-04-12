@@ -22,4 +22,8 @@ public class Customer extends Person implements Comparable<Customer>, Comparator
     public int compare(Customer o1, Customer o2) {
         return o1.lastNames.compareTo(o2.lastNames); //this compareTo is the java.lang.String default one
     }
+
+
 }
+
+
