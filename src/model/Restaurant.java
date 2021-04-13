@@ -136,4 +136,8 @@ public class Restaurant {
     public List<Order> getOrders() {
         return orders;
     }
+
+    public void setLoggedUser(User loggedUser) {
+        this.loggedUser = loggedUser;
+    }
 }

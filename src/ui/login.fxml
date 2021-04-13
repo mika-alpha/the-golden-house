@@ -13,7 +13,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox alignment="TOP_CENTER" layoutX="150.0" layoutY="34.0" prefHeight="580.0" prefWidth="450.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox alignment="TOP_CENTER" layoutX="150.0" layoutY="34.0" prefHeight="580.0" prefWidth="450.0" style="-fx-background-color: #3d3d38;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <ImageView fx:id="logInBanner" fitHeight="250.0" fitWidth="376.0" pickOnBounds="true" preserveRatio="true">
                <VBox.margin>
@@ -22,7 +22,7 @@
             </ImageView>
             <HBox alignment="CENTER" prefHeight="59.0" prefWidth="500.0">
                <children>
-                  <Label prefHeight="20.0" prefWidth="50.0" text="Usuario:" />
+                  <Label prefHeight="20.0" prefWidth="50.0" text="Usuario:" textFill="WHITE" />
                   <TextField fx:id="username" onKeyPressed="#onEnter" prefHeight="25.0" prefWidth="150.0">
                      <HBox.margin>
                         <Insets right="20.0" />
@@ -32,7 +32,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="46.0" prefWidth="450.0">
                <children>
-                  <Label prefHeight="20.0" prefWidth="70.0" text="Contraseña: " />
+                  <Label prefHeight="20.0" prefWidth="70.0" text="Contraseña: " textFill="WHITE" />
                   <PasswordField fx:id="password" onKeyPressed="#onEnter" prefHeight="25.0" prefWidth="150.0">
                      <HBox.margin>
                         <Insets right="40.0" />

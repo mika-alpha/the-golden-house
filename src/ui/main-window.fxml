@@ -13,18 +13,18 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox layoutY="7.0" prefHeight="768.0" prefWidth="1366.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox layoutY="7.0" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: #3d3d38;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <HBox prefHeight="770.0" prefWidth="1366.0">
                <children>
                   <VBox alignment="TOP_CENTER" prefHeight="743.0" prefWidth="149.0">
                      <children>
-                        <Label fx:id="timeLabel" alignment="CENTER" text="time">
+                        <Label fx:id="timeLabel" alignment="CENTER" text="time" textFill="WHITE">
                            <VBox.margin>
                               <Insets top="40.0" />
                            </VBox.margin>
                         </Label>
-                        <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="172.0" text="Inicio">
+                        <Button mnemonicParsing="false" onAction="#loadCreateOrder" prefHeight="39.0" prefWidth="172.0" text="Crear Orden">
                            <VBox.margin>
                               <Insets top="100.0" />
                            </VBox.margin>
@@ -53,15 +53,14 @@
                      <children>
                         <HBox alignment="CENTER" prefHeight="74.0" prefWidth="1201.0">
                            <children>
-                              <ImageView fx:id="banner" fitHeight="104.0" fitWidth="1113.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="banner" fitHeight="104.0" fitWidth="1066.0" pickOnBounds="true" preserveRatio="true">
                                  <HBox.margin>
                                     <Insets right="20.0" />
                                  </HBox.margin>
                               </ImageView>
-                              <MenuButton mnemonicParsing="false" prefHeight="43.0" prefWidth="39.0">
+                              <MenuButton fx:id="userButton" mnemonicParsing="false" prefHeight="43.0" prefWidth="100.0">
                                  <items>
-                                    <MenuItem mnemonicParsing="false" text="Action 1" />
-                                    <MenuItem mnemonicParsing="false" text="Action 2" />
+                                    <MenuItem mnemonicParsing="false" onAction="#logOut" text="Cerrar sesión" />
                                  </items>
                                  <HBox.margin>
                                     <Insets right="10.0" />

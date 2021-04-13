@@ -11,12 +11,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import model.Customer;
-import model.Employee;
-
 import java.io.IOException;
 import java.util.List;
-import java.util.Observable;
-import java.util.function.Predicate;
+
 
 public class SelectCustomerController {
 

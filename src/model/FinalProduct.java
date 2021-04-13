@@ -1,9 +1,12 @@
 package model;
 
-public class FinalProduct {
+import java.io.Serializable;
 
-    String size;
-    Double price;
+public class FinalProduct implements Serializable {
+
+    public final static long serialVersionUID = 1;
+    private String size;
+    private Double price;
 
     public FinalProduct(String s, Double p){
         size = s;

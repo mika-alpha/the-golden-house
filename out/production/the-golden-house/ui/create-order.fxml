@@ -30,7 +30,7 @@
             </VBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="42.0" prefWidth="424.0">
                <children>
-                  <Label alignment="CENTER" text="Total: ">
+                  <Label alignment="CENTER" text="Total: " textFill="WHITE">
                      <HBox.margin>
                         <Insets right="10.0" />
                      </HBox.margin>
@@ -53,7 +53,7 @@
          <children>
             <HBox alignment="CENTER" prefHeight="113.0" prefWidth="835.0">
                <children>
-                  <Label fx:id="customerLabel" prefHeight="20.0" prefWidth="300.0" text="Seleccione un cliente" />
+                  <Label fx:id="customerLabel" prefHeight="20.0" prefWidth="300.0" text="Seleccione un cliente" textFill="WHITE" />
                   <Separator orientation="VERTICAL" prefHeight="100.0" prefWidth="30.0" />
                   <Button mnemonicParsing="false" onAction="#selectCustomer" prefHeight="40.0" prefWidth="110.0" text="Clientes">
                      <HBox.margin>
@@ -64,7 +64,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="652.0">
                <children>
-                  <Label fx:id="employeeLabel" prefHeight="20.0" prefWidth="300.0" text="Seleccione un empleado" />
+                  <Label fx:id="employeeLabel" prefHeight="20.0" prefWidth="300.0" text="Seleccione un empleado" textFill="WHITE" />
                   <Separator orientation="VERTICAL" prefHeight="100.0" prefWidth="30.0" />
                   <Button mnemonicParsing="false" onAction="#selectEmployee" prefHeight="40.0" prefWidth="110.0" text="Empleados">
                      <HBox.margin>

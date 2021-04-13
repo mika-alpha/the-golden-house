@@ -81,7 +81,7 @@ public class CreateOrderController {
     }
 
     @FXML
-    void selectCustomer(ActionEvent event)  {
+    public void selectCustomer(ActionEvent event)  {
         SelectCustomerController scc = new SelectCustomerController(rt.getCustomers());
         try {
             tempOrder.setCustomer(scc.display());
@@ -93,7 +93,7 @@ public class CreateOrderController {
     }
 
     @FXML
-    void selectEmployee(ActionEvent event) {
+    public void selectEmployee(ActionEvent event) {
         SelectEmployeeController sec = new SelectEmployeeController(rt.getEmployees());
         try {
             tempOrder.setDeliveredBy(sec.display());
@@ -220,10 +220,13 @@ public class CreateOrderController {
             rt.getOrders().add(null);
             tempOrder.setComments(commentsTextArea.getText());
             rt.getOrders().set(rt.getOrders().size() - 1, tempOrder);
-            showAlert("Orden creada", Alert.AlertType.CONFIRMATION, "La nueva orden con código " + tempOrder.getCode() + " creada exitosamente");
+            rt.saveData("orders");
+            showAlert("Orden creada", Alert.AlertType.INFORMATION, "La nueva orden con código " + tempOrder.getCode() + " creada exitosamente");
             refreshScene();
         } catch (InvalidOrderException ioe){
             showAlert("Orden inválida", Alert.AlertType.ERROR,"Por favor asegurese de elegir un empleado, cliente, y de añadir por lo menos un producto");
+        } catch (IllegalAccessException | IOException | NoSuchFieldException e) {
+            e.printStackTrace();
         }
     }
 

@@ -1,11 +1,8 @@
 package model;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Iterator;
 
 enum Status{
     REQUESTED("SOLICITADO"), IN_PROCESS("EN PROCESO"), SENT("ENVIADO"), DELIVERED("ENTREGADO"), CANCELED("CANCELADO");
@@ -26,7 +23,7 @@ public class Order implements Serializable {
     ArrayList<Integer> selectedSp;
     Customer customer;
     Employee deliveredBy;
-    LocalDate orderDate;
+    LocalDateTime orderDate;
     String comments;
     User createdBy;
     User lastModifiedBy;
@@ -66,7 +63,7 @@ public class Order implements Serializable {
         return deliveredBy;
     }
 
-    public LocalDate getOrderDate() {
+    public LocalDateTime getOrderDate() {
         return orderDate;
     }
 
@@ -95,7 +92,7 @@ public class Order implements Serializable {
     }
 
     public void setOrderDate() {
-        orderDate = LocalDate.now();
+        orderDate = LocalDateTime.now();
     }
 
     public void setComments(String comments) {

@@ -9,14 +9,14 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="108.0" prefWidth="270.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox alignment="CENTER" layoutX="5.0" layoutY="5.0" prefHeight="110.0" prefWidth="260.0">
+      <VBox alignment="CENTER" layoutX="-5.0" layoutY="-7.0" prefHeight="132.0" prefWidth="296.0" style="-fx-background-color: #3d3d38;">
          <children>
-            <Label fx:id="label" text="¿Estás seguro de querer cerrar el programa?">
+            <Label fx:id="label" text="¿Estás seguro de querer cerrar el programa?" textFill="WHITE">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
             </Label>
-            <HBox alignment="CENTER" prefHeight="64.0" prefWidth="300.0">
+            <HBox alignment="CENTER" prefHeight="64.0" prefWidth="277.0">
                <children>
                   <Button fx:id="yesButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="50.0" text="Sí">
                      <HBox.margin>
