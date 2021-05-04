@@ -221,7 +221,7 @@ public class CreateOrderController {
             tempOrder.setComments(commentsTextArea.getText());
             rt.getOrders().set(rt.getOrders().size() - 1, tempOrder);
             rt.saveData("orders");
-            showAlert("Orden creada", Alert.AlertType.INFORMATION, "La nueva orden con código " + tempOrder.getCode() + " creada exitosamente");
+            showAlert("Orden creada", Alert.AlertType.INFORMATION, "La nueva orden con código " + tempOrder.getCode() + " ha sido creada exitosamente");
             refreshScene();
         } catch (InvalidOrderException ioe){
             showAlert("Orden inválida", Alert.AlertType.ERROR,"Por favor asegurese de elegir un empleado, cliente, y de añadir por lo menos un producto");
